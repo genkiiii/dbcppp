@@ -1,4 +1,9 @@
 [![Build Status](https://github.com/xR3b0rn/dbcppp/actions/workflows/linux.yml/badge.svg?branch=master)
+# Create Reflection available Structure from DBC file using RTTR libraries(https://www.rttr.org/)
+```
+dbcppp dbc2 --format=CPPStruct --dbc=yourfile.dbc > reflection_structure.hpp
+```
+
 # dbcppp
 A C/C++ DBC file parser based on `boost.spirit`. This library is designed for decoding performance.
 # Features
