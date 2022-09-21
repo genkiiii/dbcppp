@@ -32,7 +32,7 @@ int main(int argc, char** argv)
     {
         options.add_options()
             ("h,help", "Produce help message")
-            ("f,format", "Output format (C, DBC, human)", cxxopts::value<std::string>())
+            ("f,format", "Output format (C, DBC, human,CPPStruct)", cxxopts::value<std::string>())
             ("dbc", "List of DBC files", cxxopts::value<std::vector<std::string>>());
 
         for (std::size_t i = 1; i < argc - 1; i++)
@@ -83,6 +83,12 @@ int main(int argc, char** argv)
             using namespace dbcppp::Network2Human;
             std::cout << *net;
         }
+        else if (format == "CPPStruct")
+        {
+            using namespace dbcppp::Network2CPPStruct;
+            std::cout << *net;
+        }
+
     }
     else if (std::string("decode") == argv[1])
     {

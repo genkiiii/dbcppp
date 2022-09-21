@@ -34,4 +34,8 @@ namespace dbcppp
         DBCPPP_API std::ostream& operator<<(std::ostream& os, const INetwork& net);
         DBCPPP_API std::ostream& operator<<(std::ostream& os, const IMessage& msg);
     }
+    namespace Network2CPPStruct
+    {
+        DBCPPP_API std::ostream &operator<<(std::ostream &os, const INetwork &net);
+    }
 }
