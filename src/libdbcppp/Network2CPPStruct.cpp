@@ -36,8 +36,8 @@ dbcppp::Network2CPPStruct::operator<<(std::ostream &os, const INetwork &net)
     {
       os << boost::format("  Type %s;\n") % (sig.Name());
     }
-    os << boost::format("  const std::uint64_t id = %lf;\n"
-                        "  const std::uint64_t cycle_time = %lf;\n") %
+    os << boost::format("  static const std::uint64_t id = %lf;\n"
+                        "  static const std::uint64_t cycle_time = %lf;\n") %
               msg.Id() % cycle_time;
     os << boost::format("  std::uint64_t Id() { return id;}\n"
                         "  std::uint64_t Cycle_time() { return cycle_time;}\n");
