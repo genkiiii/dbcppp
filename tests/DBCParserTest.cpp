@@ -1,7 +1,7 @@
 
 #include <fstream>
 #include <iomanip>
-#include <filesystem>
+#include <experimental/filesystem>
 
 #include "dbcppp/Network.h"
 #include "dbcppp/Network2Functions.h"
@@ -13,7 +13,7 @@
 TEST_CASE("DBCParserTest", "[]")
 {
     std::size_t i = 0;
-    for (const auto& dbc_file : std::filesystem::directory_iterator(std::filesystem::path(TEST_FILES_PATH) / "dbc"))
+    for (const auto& dbc_file : std_fs::directory_iterator(std_fs::path(TEST_FILES_PATH) / "dbc"))
     {
         //BOOST_TEST_CHECKPOINT("DBCParserTest: Testing file '" + dbc_file.path().string() + "'");
         if (dbc_file.path().extension() != ".dbc")
@@ -44,7 +44,7 @@ TEST_CASE("DBCParserTest", "[]")
             std::cout << error_msg << std::endl;
         }
         REQUIRE(*spec == *test);
-        std::filesystem::remove(dbc_file_tmp);
+        std_fs::remove(dbc_file_tmp);
         i++;
     }
 }
