@@ -19,7 +19,7 @@ A C/C++ DBC file parser based on `boost.spirit`. This library is designed for de
 # Getting started
 ## Build & Install
 ```
-git clone --recurse-submodules https://github.com/genkiiii/dbcppp.git
+git clone --branch ubuntu18.04 --recurse-submodules https://github.com/genkiiii/dbcppp.git
 cd dbcppp
 mkdir build
 cd build
