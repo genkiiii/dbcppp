@@ -63,6 +63,10 @@ int main(int argc, char** argv)
         for (const auto& dbc : dbcs)
         {
             auto nets = dbcppp::INetwork::LoadNetworkFromFile(dbc);
+            if(nets.empty())
+            {
+                exit(-1);
+            }
             for (auto& other : nets)
             {
                 net->Merge(std::move(other.second));

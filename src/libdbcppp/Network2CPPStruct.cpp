@@ -16,8 +16,12 @@ static const char *header =
 DBCPPP_API std::ostream &
 dbcppp::Network2CPPStruct::operator<<(std::ostream &os, const INetwork &net)
 {
-  //
   os << boost::format(header);
+
+  os << boost::format(
+      "namespace your_namespace\n"
+      "{\n");
+
   for (const auto &msg : net.Messages())
   {
     std::uint64_t cycle_time;
@@ -28,8 +32,6 @@ dbcppp::Network2CPPStruct::operator<<(std::ostream &os, const INetwork &net)
     }
 
     os << boost::format(
-              "namespace your_namespace\n"
-              "{\n"
               "  struct %s\n"
               "  {\n") %
               (msg.Name());
