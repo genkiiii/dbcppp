@@ -1,6 +1,7 @@
 #include <limits>
 #include "Helper.h"
 #include "SignalImpl.h"
+#include <cmath>
 
 using namespace dbcppp;
 
@@ -266,7 +267,7 @@ template <class T>
 ISignal::raw_t phys_to_raw(const ISignal* sig, double phys) noexcept
 {
     const SignalImpl* sigi = static_cast<const SignalImpl*>(sig);
-    T result = T((phys - sigi->Offset()) / sigi->Factor());
+    T result = T(std::round((phys - sigi->Offset()) / sigi->Factor()));
     return *reinterpret_cast<ISignal::raw_t*>(&result);
 }
 std::unique_ptr<ISignal> ISignal::Create(
